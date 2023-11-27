@@ -59,7 +59,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 }'
 
 
-
+#---------------------- Query -----------------------
 curl -XGET 127.0.0.1:9200/movies/_search?pretty -d'
 {
     "query":{
@@ -69,7 +69,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d'
     }
     }
 }'
-
+#---------------------- Query with Boolean Filter-----------------------
 curl -XGET 127.0.0.1:9200/movies/_search?pretty -d'
 {
     "query":{
@@ -81,7 +81,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d'
 }
 
 
-
+#---------------------- Phrase Search -----------------------
 curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 {
     "query": {
@@ -90,7 +90,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
         }
     }
 }'
-
+#---------------------- Slop -----------------------
 curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 {
     "query": {
@@ -109,6 +109,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
     }
 }'
 
+#---------------------- Pagination -----------------------
 curl -XGET '127.0.0.1:9200/movies/_search?size=2&from=2&pretty'
 
 
@@ -120,7 +121,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 }'
 
 
-
+#---------------------- Sorting -----------------------
 
 
 curl -XGET '127.0.0.1:9200/movies/_search?sort=year&pretty'
@@ -158,6 +159,7 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d'
     }
 }
 
+#---------------------- Fuzzy -----------------------
 curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 {
     "query": {
@@ -188,6 +190,7 @@ curl -XGET '127.0.0.1:9200/movies/_search?pretty' -d '
 }'
 
 
+#---------------------- N-Gram -----------------------
 
 curl -XGET '127.0.0.1:9200/movies/_search?pretty' -d '
 {
