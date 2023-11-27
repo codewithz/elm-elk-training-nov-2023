@@ -20,3 +20,16 @@ curl -XPUT 127.0.0.1:9200/_bulk?pretty -HContent-Type:application/json --data-bi
         }
     }
 }
+
+#-------------------- Mapping for Series ---------------------------------------
+
+{
+    "mappings":{
+        "properties":{
+            "film_to_franchise":{
+                "type":"join",
+                "relations":{"franchise":"film"}
+            }
+        }
+    }
+}
