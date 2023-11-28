@@ -1,0 +1,3 @@
+sudo apt install unzip
+
+sudo wget http://files.grouplens.org/datasets/movielens/ml-latest-small.zip
