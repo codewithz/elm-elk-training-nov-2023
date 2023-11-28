@@ -11,4 +11,9 @@ sudo pip3 install elasticsearch
 
 python3 IndexRatings.py 
 
+#--------------- For Logstash Access Log Example ----------------------------------
+
+sudo nano /etc/logstash/conf.d/logstash-access-log.conf
+
+
 
