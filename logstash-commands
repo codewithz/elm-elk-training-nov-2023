@@ -28,6 +28,8 @@ Get a platform-independent mysql connector from https://dev.mysql.com/downloads/
 
 unzip mysql-connector-java-8.0.15.zip 
 
+wget http://files.grouplens.org/datasets/movielens/ml-100k.zip
+
 
 
 
