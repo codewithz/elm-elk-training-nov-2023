@@ -15,5 +15,11 @@ python3 IndexRatings.py
 
 sudo nano /etc/logstash/conf.d/logstash-access-log.conf
 
+cd /usr/share/logstash
+
+
+sudo bin/logstash -f /etc/logstash/conf.d/logstash-access-log.conf 
+
+
 
 
