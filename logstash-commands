@@ -33,6 +33,22 @@ wget http://files.grouplens.org/datasets/movielens/ml-100k.zip
 unzip ml-100k.zip
 
 
+#-------------- For Importing the files from MySQL
+
+sudo mysql --local-infile=1 -u root -p 
+
+Add the password 
+
+Then
+
+> CREATE DATABASE movielens
+
+> USE movielens
+
+>CREATE TABLE movielens.movies(movieID int primary key not null,title text, releaseDate date);
+
+>LOAD DATA LOCAL INFILE 'ml-100k/u.item' INTO TABLE movielens.movies CHARACTERSET latin1 FIELDS TERMINATED BY '|' (movieID,title,@var3) set releaseDate=STR_TO_DATE(@var3, '%d-%M-%Y');
+
 
 
 
