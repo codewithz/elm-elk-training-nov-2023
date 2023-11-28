@@ -9,3 +9,6 @@ sudo apt install python3-pip
 
 sudo pip3 install elasticsearch
 
+python3 IndexRatings.py 
+
+
