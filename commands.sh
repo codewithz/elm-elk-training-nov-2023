@@ -309,6 +309,20 @@ curl -XGET 127.0.0.1:9200/ratings/_search?pretty -d '
     }
 }'
 
+#------------- Histogram ------------------
+
+curl -XGET 127.0.0.1:9200/ratings/_search?pretty -d '
+{
+    "aggs":{
+        "whole_ratings":{
+            "histogram":{
+                "field":"rating",
+                "interval":1.0
+            }
+        }
+    }
+}'
+
 
 
 
