@@ -21,6 +21,7 @@ curl -XPUT 127.0.0.1:9200/_bulk?pretty -HContent-Type:application/json --data-bi
     }
 }
 
+
 #-------------------- Mapping for Series ---------------------------------------
 
 {
@@ -263,8 +264,25 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 
 
 #------------- Aggregations---------------------------
-curl -XGET 127.0.0.1:9200/ratings/_search?pretty -d '
+curl -XGET 127.0.0.1:9200/ratings/_search?size=0&pretty -d '
 {
+    "aggs":{
+        "ratings":{
+            "terms":{
+                "field":"rating"
+            }
+        }
+    }
+}'
+
+# -------- Average Rating for Star Wars
+curl -XGET 127.0.0.1:9200/ratings/_search?size=0&pretty -d '
+{
+    "query":{
+        "match_phrase":{
+            "title":"Star Wars Episode IV"
+        }
+    }
     "aggs":{
         "ratings":{
             "terms":{
