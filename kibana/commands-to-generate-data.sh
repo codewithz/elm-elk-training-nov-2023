@@ -2,10 +2,10 @@
 
 curl -XGET http://localhost:9200 
 
-let say your version is 8.2.0 
+let say your version is 8.11.1
 
 
-sudo apt-get install metricbeat=8.2.0 
+sudo apt-get install metricbeat=8.11.1
 
 sudo systemctl start metricbeat
 
