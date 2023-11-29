@@ -262,5 +262,18 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
 }'
 
 
+#------------- Aggregations---------------------------
+curl -XGET 127.0.0.1:9200/ratings/_search?pretty -d '
+{
+    "aggs":{
+        "ratings":{
+            "terms":{
+                "field":"rating"
+            }
+        }
+    }
+}'
+
+
 
 
