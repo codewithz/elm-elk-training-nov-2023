@@ -22,3 +22,22 @@ sudo apt install jq
 /usr/bin/curl --silent --request POST 'http://localhost:9200/nginx/_bulk' \
 --header 'Content-Type: application/x-ndjson' \
 --data-binary '@nginx_json_logs_bulk' | jq '.errors'
+
+
+#-------------------- Queries ---------------------------------
+
+
+Select SUM(bytes) AS total_transferred from nginx GROUP BY remote_ip ORDER BY total_transferred DESC NULLS LAST LIMIT 5
+
+SELECT COUNT(*) AS count_documents FROM nginx
+
+SELECT SUM(bytes) AS bytes FROM nginx
+
+SELECT COUNT(DISTINCT remote_ip) AS remote_ip FROM nginx
+
+SELECT COUNT(DISTINCT agent) AS agents FROM nginx
+
+
+Select request,COUNT(*) AS count_requests from nginx GROUP BY request ORDER BY count_requests DESC NULLS LAST LIMIT 5
+
+Select remote_ip,SUM(bytes) AS total_transferred from nginx GROUP BY remote_ip ORDER BY total_transferred DESC NULLS LAST LIMIT 5
