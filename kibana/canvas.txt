@@ -1,0 +1,22 @@
+wget https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/nginx_json_logs/nginx_json_logs
+ 
+awk '{print "{\"index\":{}}\n" $0}' nginx_json_logs > nginx_json_logs_bulk
+ 
+ 
+curl --request PUT "http://localhost:9200/nginx" \
+-d '{
+   "settings": {
+       "number_of_shards": 1,
+       "number_of_replicas": 0
+   },
+   "mappings": {
+       "properties": {
+           "time": {"type":"date","format":"dd/MMM/yyyy:HH:mm:ss Z"},
+           "response": {"type":"keyword"}
+       }
+   }
+}'
+ 
+/usr/bin/curl --silent --request POST 'http://localhost:9200/nginx/_bulk' \
+--header 'Content-Type: application/x-ndjson' \
+--data-binary '@nginx_json_logs_bulk' | jq '.errors'
