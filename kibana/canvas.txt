@@ -16,6 +16,8 @@ sudo curl -HContent-Type:application/json --request PUT "http://localhost:9200/n
        }
    }
 }'
+
+sudo apt install jq
  
 /usr/bin/curl --silent --request POST 'http://localhost:9200/nginx/_bulk' \
 --header 'Content-Type: application/x-ndjson' \
