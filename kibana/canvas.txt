@@ -3,7 +3,7 @@ wget https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20F
 awk '{print "{\"index\":{}}\n" $0}' nginx_json_logs > nginx_json_logs_bulk
  
  
-curl --request PUT "http://localhost:9200/nginx" \
+sudo curl -HContent-Type:application/json --request PUT "http://localhost:9200/nginx" \
 -d '{
    "settings": {
        "number_of_shards": 1,
